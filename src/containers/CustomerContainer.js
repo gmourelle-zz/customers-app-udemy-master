@@ -7,24 +7,24 @@ import { Route, withRouter } from "react-router-dom";
 import CustomerEdit from "./../components/CustomerEdit";
 import CustomerData from "./../components/CustomerData";
 import { fetchCustomers } from "./../actions/fetchCustomers";
-// import { updateCustomer } from "./../actions/updateCustomer";
-// import { SubmissionError } from "redux-form";
-// import { deleteCustomer } from "./../actions/deleteCustomer";
+import { updateCustomer } from "./../actions/updateCustomer";
+import { SubmissionError } from "redux-form";
+import { deleteCustomer } from "./../actions/deleteCustomer";
 
 class CustomerContainer extends Component {
-  //   componentDidMount() {
-  //     if (!this.props.customer) {
-  //       this.props.fetchCustomers();
-  //     }
-  //   }
+  componentDidMount() {
+    if (!this.props.customer) {
+      this.props.fetchCustomers();
+    }
+  }
 
   handleSubmit = values => {
     console.log(JSON.stringify(values));
     const { id } = values;
     return this.props.updateCustomer(id, values).then(r => {
-      //   if (r.error) {
-      //     throw new SubmissionError(r.payload);
-      //   }
+      if (r.error) {
+        throw new SubmissionError(r.payload);
+      }
     });
   };
 
@@ -105,8 +105,8 @@ export default withRouter(
   connect(
     mapStateToProps,
     {
-      fetchCustomers
-      //   updateCustomer,
+      fetchCustomers,
+      updateCustomer
       //   deleteCustomer
     }
   )(CustomerContainer)

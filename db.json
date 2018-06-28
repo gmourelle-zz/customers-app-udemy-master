@@ -1,19 +1,24 @@
 {
   "customers": [
     {
-      "dni": "27000000",
-      "name": "Juan Carlos",
-      "age": 37
+      "id": "500000",
+      "dni": "500000",
+      "name": "CARLOS SANCHEZ",
+      "age": 40,
+      "isDeleteAllow": false
     },
     {
-      "dni": "28000000",
-      "name": "Sergio",
-      "age": 37
+      "dni": "1111111",
+      "name": "NUEVO CLIENTESSS",
+      "age": 10,
+      "id": "XSCfaW5",
+      "isDeleteAllow": false
     },
     {
-      "dni": "29000000",
-      "name": "Maria",
-      "age": 52
+      "name": "NUEVO CLIENTE 1",
+      "dni": "99999",
+      "age": 11,
+      "id": "kxmVQVd"
     }
   ],
   "posts": [
