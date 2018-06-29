@@ -4,6 +4,7 @@ import "./App.css";
 import HomeContainer from "./containers/HomeContainer";
 import CustomersContainer from "./containers/CustomersContainer";
 import CustomerContainer from "./containers/CustomerContainer";
+import NewCustomerContainer from "./containers/NewCustomerContainer";
 
 class App extends Component {
   renderCustomerNewContainer = () => <h1>Customers New Container</h1>;
@@ -15,10 +16,7 @@ class App extends Component {
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/customers" component={CustomersContainer} />
           <Switch>
-            <Route
-              path="/customers/new"
-              component={this.renderCustomerNewContainer}
-            />
+            <Route path="/customers/new" component={NewCustomerContainer} />
             <Route
               path="/customers/:dni"
               render={props => (

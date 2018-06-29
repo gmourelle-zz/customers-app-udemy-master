@@ -9,7 +9,7 @@
     },
     {
       "dni": "1111111",
-      "name": "NUEVO CLIENTESSS",
+      "name": "NUEVO CLIENTES",
       "age": 10,
       "id": "XSCfaW5",
       "isDeleteAllow": false
@@ -19,6 +19,12 @@
       "dni": "99999",
       "age": 11,
       "id": "kxmVQVd"
+    },
+    {
+      "age": 10,
+      "name": "NUEVO CLIENTES",
+      "dni": "11111111",
+      "id": "CLPiRVg"
     }
   ],
   "posts": [
