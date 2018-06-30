@@ -38,34 +38,42 @@ class CustomerContainer extends Component {
 
   handleOnDelete = id => {
     console.log("handleOnDelete");
-    // this.props.deleteCustomer(id).then(v => {
-    //   this.props.history.goBack();
-    // });
+    this.props.deleteCustomer(id).then(v => {
+      this.props.history.goBack();
+    });
   };
 
   renderCustomerControl = (isEdit, isDelete) => {
     if (this.props.customer) {
-        const CustomerControl = isEdit ? CustomerEdit : CustomerData;
-        return <CustomerControl {...this.props.customer} 
-                    onSubmit={this.handleSubmit}
-                    onSubmitSuccess={this.handleOnSubmitSuccess}
-                    onBack={this.handleOnBack}
-                    isDeleteAllow={!!isDelete}
-                    onDelete={this.handleOnDelete} />
+      const CustomerControl = isEdit ? CustomerEdit : CustomerData;
+      return (
+        <CustomerControl
+          {...this.props.customer}
+          onSubmit={this.handleSubmit}
+          onSubmitSuccess={this.handleOnSubmitSuccess}
+          onBack={this.handleOnBack}
+          isDeleteAllow={!!isDelete}
+          onDelete={this.handleOnDelete}
+        />
+      );
     }
 
-    return null;        
-}
+    return null;
+  };
 
-renderBody = () => (
-    <Route path="/customers/:dni/edit" children={
-        ( { match: isEdit } ) => (
-            <Route path="/customers/:dni/del" children={
-                ( { match: isDelete } ) => (
-                    this.renderCustomerControl(isEdit, isDelete))
-        } /> )
-    } />
-)
+  renderBody = () => (
+    <Route
+      path="/customers/:dni/edit"
+      children={({ match: isEdit }) => (
+        <Route
+          path="/customers/:dni/del"
+          children={({ match: isDelete }) =>
+            this.renderCustomerControl(isEdit, isDelete)
+          }
+        />
+      )}
+    />
+  );
 
   // <p>Datos del cliente "{this.props.customer.name}"</p>
   render() {
@@ -98,8 +106,8 @@ export default withRouter(
     mapStateToProps,
     {
       fetchCustomers,
-      updateCustomer
-      //   deleteCustomer
+      updateCustomer,
+      deleteCustomer
     }
   )(CustomerContainer)
 );
